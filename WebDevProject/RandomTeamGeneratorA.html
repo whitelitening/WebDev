@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<h1 align="center">Random Team Selector</h1>
+	</head>
+	<script type="text/javascript">
+	function generate()
+	{
+			var playerOne = false;
+			var playerTwo = false;
+			var playerThree = false;
+			var playerFour = false;
+			var Teams = new Array();
+			var tempo;
+			var full = false;
+			var i = 0;
+			while(i < 4)
+			{
+				tempo = (Math.floor(Math.random() * 4) + 1);
+				if(tempo == 1 && playerOne == false)
+				{Teams[i] = document.inp.P1.value; playerOne = true; i++;}
+				if(tempo == 2 && playerTwo == false)
+				{Teams[i] = document.inp.P2.value; playerTwo = true; i++;}
+				if(tempo == 3 && playerThree == false)
+				{Teams[i] = document.inp.P3.value; playerThree = true; i++;}
+				if(tempo == 4 && playerFour == false)
+				{Teams[i] = document.inp.P4.value; playerFour = true; i++;}
+			}
+			i=0;
+			while(i<4)
+			{
+				if(i==0){document.write("<b><u>Team One</u></b>" + "<br>")}
+				if(i==2){document.write("<br>")}
+				if(i==2){document.write("<b><u>Team Two</u></b>" + "<br>")}
+				document.write(Teams[i] + "<br>");
+				i++;
+			}
+	}
+		</script>
+	<body>
+		<form action="" name="inp" align="center">
+			<input type="text" value="Player 1" name="P1" /></br>
+			<input type="text" value="Player 2" name="P2" /></br>
+			<input type="text" value="Player 3" name="P3" /></br>
+			<input type="text" value="Player 4" name="P4" /></br>
+			<input type="button" value="Choose Teams" name="Choose Teams"
+				onclick="return generate()" />
+		</form>
+	</body>
+</html>

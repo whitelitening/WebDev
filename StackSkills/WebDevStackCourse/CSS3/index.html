@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CSS3|StackSkills</title>
+	<style>
+		body{
+			font-family:Arial, sans-serif;
+			font-size:13px;
+		}
+		.text-center{
+			text-align:center;
+		}
+		#box1{
+			background:black;
+			color:white;
+			width:200px;
+			padding: 20px;
+			margin:20px;
+			border: 3px red solid;
+			float:left;
+		}
+		#box2{
+			background:blue;
+			color:white;
+			width:200px;
+			padding: 20px;
+			margin:20px;
+			border: 3px green solid;
+			float:right;
+		}
+		.clr{
+			clear:both;
+		}
+		ul.myList1{
+			list-style:none;
+			padding:0;
+			line-height: 2.2em;
+		}
+		ul.myList1 li{
+			border-bottom:1px dotted #666;
+		}
+	</style>
+	<style>
+		.wrapper{
+			border: #000 1px solid;
+			width:600px;
+			height:400px;
+			/*position:relative;*/
+			left:50px;
+			top:100px;
+			background-image: url('bg.jpg');
+			background-repeat:no-repeat;
+			background-position: 100px 100px;
+			background: #000 url('bg.jpg') no-repeat 100px 100px;
+		}
+		.inside{
+			border: red 1px solid;
+			width:200px;
+			height:100px;
+			position:absolute;
+			top:20px;
+			left:50px;
+
+		}
+	</style>
+	<style>
+		a:hover{
+			color: red;
+			font-weight: bold;
+		}
+		a:active{
+			color: green;
+			font-weight: bold;
+		}
+		.myForm input:focus{
+			background:pink;
+			width:300px;
+		}
+		.myList li:first-child{
+			color:red;
+			font-weight:bold;
+		}
+		.myList li:last-child{
+			color: green;
+			font-weight: bold;
+		}
+		.myList li:nth-child(3){
+			color: orange;
+			font-weight: bold;
+		}
+		.myList li:nth-child(3n+3){
+			color: purple;
+			font-weight: bold;
+		}
+		.myList li:nth-child(even){
+			background: grey;
+			font-weight: bold;
+		}
+		.myList li:nth-child(odd){
+			background: yellow;
+			font-weight: bold;
+		}
+	</style>
+	<style>
+		#rounded1{
+			background:rgba(255, 0, 0, 0.3);
+			color:white;
+			width:200px;
+			height:200px;
+			padding:30px;
+			border-radius:10px;
+		}
+		#rounded2{
+			background:hsl(120, 100%, 75%);
+			color:white;
+			width:200px;
+			height:200px;
+			padding:30px;
+			border-top-left-radius:10px;
+			border-top-right-radius:10px;
+		}
+		#rounded3{
+			background:hsla(120, 100%, 50%, 0.3);
+			color:white;
+			width:200px;
+			height:200px;
+			padding:30px;
+			border-radius:50%;
+			border: 3px black solid;
+		}
+		img{
+			border-radius:50%;
+		}
+		#border-img{
+			border:10px solid transparent;
+			padding:15px;
+			border-image: url(border.png) 30 round;
+		}
+		#myBG{
+			background-image: url(img_flwr.gif), url(paper.gif);
+			background-position: right bottom, left top;
+			background-repeat: no-repeat, repeat;
+			padding: 15px 200px 15px 15px;
+			background-size: 100px 100px;
+		}
+		#grad1{
+			width:500px;
+			height:200px;
+			background:blue;
+			background: linear-gradient(blue, black, white);
+		}
+		#grad2{
+			width:500px;
+			height:200px;
+			background:blue;
+			background: linear-gradient(to right, blue, black);
+		}
+		#grad3{
+			width:500px;
+			height:200px;
+			background:blue;
+			background: linear-gradient(to bottom right, blue, black);
+		}
+		#grad4{
+			width:500px;
+			height:200px;
+			background:blue;
+			background: radial-gradient(circle, white 5%, blue 15%, black 60%);
+		}
+	</style>
+	<style>
+		h1.text1{
+			text-shadow: 2px 2px 5px red;
+		}
+		h1.text2{
+			color:#ffffff;
+			text-shadow: 2px 2px 5px black;
+		}
+		h1.text3{
+			text-shadow: 0 0 3px #ff0000, 0 0 5px #0000ff;
+		}
+		#box10{
+			width:300px;
+			height:200px;
+			padding:15px;
+			background-color:red;
+			box-shadow: 10px 10px 5px grey;
+		}
+		.card{
+			width:250px;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px
+				20px 0 rgba(0, 0, 0, 0.19);
+			text-align:center;
+		}
+		.card-header{
+			background-color: #ff0000;
+			color:#ffffff;
+			padding:10px;
+			font-size:40px;
+		}
+		.card-container{
+			padding:10px;
+		}
+	</style>
+	<style>
+		#box11{
+			width:100px;
+			height:100px;
+			background:#000000;
+			transition: width 2s, height 2s;			
+			animation-duration: 5s;
+		}
+		#box11:hover{
+			width:300px;
+			height:300px;
+
+		}
+		#box12{
+			width:100px;
+			height:100px;
+			position: relative;
+			background-color:red;
+			animation-name:colorChange;
+			animation-duration: 5s;
+		}
+		/*@keyframes colorChange {
+			from {background-color:red;}
+			to{background-color:blue;}
+		}*/
+		@keyframes colorChange {
+			0% {background-color: red; left:0px;top:0px;}
+			25% {background-color: orange;left:200px;top:0px;}
+			50% {background-color: yellow;left:200px;top:200px;}
+			75% {background-color: green;left:0px;top:200px;}
+			100% {background-color: blue;left:0px;top:0px;}		
+		}
+	</style>
+	<style>
+		article{
+			column-count:3;
+			column-gap:40px;
+			column-rule-style: solid;
+			column-rule-width: 1px;
+			column-rule-color: coral;
+		}
+		article h1{
+			column-span: all;
+		}
+		.textbox1{
+			border: 2px solid;
+			padding: 20px;
+			width:300px;
+			overflow:auto;
+			resize: both;
+		}
+		.textbox2{
+			margin:20px;
+			padding:10px;
+			width:300px;
+			height:100px;
+			border: 1px solid black;
+			outline: 1px solid red;
+			outline-offset: 10px;
+		}
+		.flex-container{
+			width:400px;
+			height:250px;
+			background-color: black;
+			display: flex;
+			/*flex-direction: column;
+			*/
+			justify-content:space-around;
+		}
+		.flex-item{
+			background-color: lightblue;
+			width:100px;
+			height:100px;
+			margin:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class='text-center'>
+		<h1 class='text-center'>Welcome</h1>
+		<p class="text-center">This is a paragraph</p>
+		<p>This is another paragraph</p>
+	</div>
+	<div id='box1'>
+		This is box 1
+	</div>
+	<div id='box2'>
+		This is box 2
+	</div>
+	<div class="clr"></div>
+	<div>
+		Hello
+	</div>
+	<ul class="myList1">
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+	</ul>
+	<h1>Positioing & Backgrounds</h1>
+	<div class="wrapper">
+		<div class="inside">
+		</div>
+	</div>
+	<h1>Pseudo Classes/Selectors</h1>
+	<a href="#">Click Me</a>
+	<form class="myForm">
+	<input type="text">
+	</form>
+	<ul class="myList">
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+		<li>List Item</li>
+	</ul>
+	<h1>Colors, Backgrounds and Gradients</h1>
+	<div id="rounded1">Rounded Corners</div>
+	<br>
+	<div id="rounded2">Rounded Corners</div>
+	<br>
+	<div id="rounded3">Rounded Corners</div>
+	<br>
+	<img src="bird.jpg">
+	<br>
+	<div id="border-img">This div uses an image border</div>
+	<br>
+	<div id="myBG">
+		<h1>Welcome</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac laoreet quam. Fusce vitae tortor eget ligula gravida cursus. Sed lectus velit, facilisis vel lacinia vel, fermentum quis mauris. Vivamus massa nulla, congue sit amet nunc eu, lobortis fermentum erat. Aenean eget est vitae felis mattis interdum. Suspendisse pulvinar, turpis sed fringilla volutpat, lectus justo vulputate dolor, quis vehicula massa ligula at dui. Vivamus dapibus enim nec lacus hendrerit dignissim. Quisque id ullamcorper magna. Integer ac imperdiet tortor.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac laoreet quam. Fusce vitae tortor eget ligula gravida cursus. Sed lectus velit, facilisis vel lacinia vel, fermentum quis mauris. Vivamus massa nulla, congue sit amet nunc eu, lobortis fermentum erat. Aenean eget est vitae felis mattis interdum. Suspendisse pulvinar, turpis sed fringilla volutpat, lectus justo vulputate dolor, quis vehicula massa ligula at dui. Vivamus dapibus enim nec lacus hendrerit dignissim. Quisque id ullamcorper magna. Integer ac imperdiet tortor.</p>
+	</div>
+	<br>
+	<div id="grad1"></div>
+	<div id="grad2"></div>
+	<div id="grad3"></div>
+	<div id="grad4"></div>
+	<br>
+	<h1>Text and Box Shadows</h1>
+	<br>
+	<h1 class="text1">Hello World</h1>
+	<h1 class="text2">Hello World</h1>
+	<h1 class="text3">Hello World</h1>
+
+	<div id="box10"></div>
+	<br>
+	<br>
+	<div class="card">
+		<div class='card-header'>
+			<h1>1</h1>
+		</div>
+		<div class="card-container">
+			<p>This is a card</p>
+		</div>
+	</div>
+	<br>
+	<h1>Transitions & Animation</h1>
+	<div id="box11"></div>
+	<br>
+	<div id="box12"></div>
+	<br>
+	<h1>Columns & Flexbox</h1>
+	<article>
+	<h1>Article Title</h1>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac laoreet quam. Fusce vitae tortor eget ligula gravida cursus. Sed lectus velit, facilisis vel lacinia vel, fermentum quis mauris. Vivamus massa nulla, congue sit amet nunc eu, lobortis fermentum erat. Aenean eget est vitae felis mattis interdum. Suspendisse pulvinar, turpis sed fringilla volutpat, lectus justo vulputate dolor, quis vehicula massa ligula at dui. Vivamus dapibus enim nec lacus hendrerit dignissim. Quisque id ullamcorper magna. Integer ac imperdiet tortor.
+	</article>
+	<br>
+	<div class="textbox1">Try and resize this element</div>
+	<br>
+	<div class="textbox2">This element has a 10 pixel outline</div>
+	<br>
+	<div class="flex-container">
+		<div class="flex-item">Flex Item 1</div>
+		<div class="flex-item">Flex Item 2</div>
+		<div class="flex-item">Flex Item 3</div>
+	</div>
+
+</body>
+</html>

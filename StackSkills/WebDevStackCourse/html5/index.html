@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5</title>
+	<style>
+		body{
+			background: #666;
+			color:#fff;
+			font-family: arial;
+		}
+		a{
+			color:#fff;
+			text-decoration: none;
+		}
+		ul{
+			padding:0;
+		}
+		.clr {
+			clear:both;
+		}
+		#container{
+			background:#333;
+			width:960px;
+			margin:30px auto;
+			overflow:hidden;
+			padding:10px;
+		}
+		nav{
+			height:40px;
+			background:#666;
+		}
+		nav ul{
+			padding-top:13px;
+			padding-left: 10px;
+		}
+		nav li{
+			list-style: none;
+			float:left;
+			padding-right:20px;
+		}
+		main {
+			float:left;
+			width:60%;
+		}
+		aside {
+			float:right;
+			width:30%;
+			background:#666;
+			margin-top:20px;
+			padding:10px;
+		}
+		footer {
+			text-align: center;
+			padding: 10px;
+			background: #666;
+			margin-top:30px;
+		}
+		#myCanvas {
+			border: 1px #000 solid;
+			background:#f4f4f4;
+		}
+		#box{
+			width:300px;
+			height:150px;
+			padding:10px;
+			border:1px solid #ccc;
+		}
+		.clear{
+			text-decoration:none;
+			padding:10px;
+			border: white 1px solid;
+		}
+		#noteContainer{
+			color:black;
+			background: #FFFFA5;
+			padding:30px;
+			overflow:hidden;
+			margin:50px auto;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<h1>My Webpage</h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Services</a></li>
+				<li><a href="">Contacts</a></li>
+			</ul>
+		</nav>
+		<main>
+			<article>
+				<h3>Some Article</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+			</article>
+			<h3>Video</h3>
+			<video id="myvideo" src="http://v2v.cc/~j/theora_testsuite/320x240.ogg" controls>
+			Your browser does not support this video feature.
+			</video>
+
+			<script>
+				var v = document.getElementById('myvideo');
+				v.play();
+			</script>
+			<br><br>
+			<h3>Audio</h3>
+			<audio id="myaudio" src="http://www.freesound.org/data/previews/95/95026_57789-lq.mp3">
+			Your browser does not support this audio feature.
+			</audio>
+			<div>
+				<button onclick="document.getElementById('myaudio').play()">Play</button>
+				<button onclick="document.getElementById('myaudio').pause()">Pause</button>
+				<button onclick="document.getElementById('myaudio').volume-=0.1">--</button>
+				<button onclick="document.getElementById('myaudio').volume+=0.1">++</button>
+			</div><br><br>
+			<h1>Canvas</h1>
+			<canvas id="myCanvas" width="300" height="300"></canvas>
+			<script>
+			var c = document.getElementById('myCanvas');
+			var ctx = c.getContext('2d');
+
+			// Rectangle
+			//ctx.fillStyle = 'red';
+			//ctx.fillRect(75,75,150,150);
+
+			// Line
+			//ctx.moveTo(0,0);
+			//ctx.lineTo(250,100);
+			//ctx.stroke();
+
+			// Circle
+			/*
+			ctx.beginPath();
+			ctx.arc(150, 150, 60, 0, 2*Math.PI);
+			ctx.fillStyle = 'green';
+			ctx.fill();
+			ctx.lineWidth = 4;
+			ctx.strokeStyle = 'red';
+			ctx.stroke();
+			*/
+
+			// Text
+			/*
+			ctx.font = '50px Arial';
+			ctx.strokeStyle = 'red';
+			ctx.strokeText('Hello World', 20, 150);
+			*/
+
+			// Gradient
+			var grd = ctx.createLinearGradient(0,0,100,0);
+			grd.addColorStop(0, 'blue');
+			grd.addColorStop(1, 'white');
+			ctx.fillStyle = grd;
+			ctx.fillRect(10, 10, 150, 150);
+			</script>
+
+			<svg width = "300" height="300">
+			<circle cx="100" cy="100" r="80" stroke="red" stroke-width="4" fill="green"/>
+			Sorry, your browser does not support inline SVG
+			</svg>
+			<svg width="400" height="200">
+			<rect width="300" height="100" style="fill:rgb(255,0,0);stroke-width:1;stroke:rgb(0,0,0);"/>
+			</svg>
+			<svg width="300" height="200">
+			<polygon points="100,10 40,198 190,78 10,78, 160,198" style="fill:yellow;stroke:black;stroke-width:5;fill-rule:evenodd;"/>
+			</svg>
+			<svg height="130" width="500">
+			<ellipse cx="105" cy="70" rx="85" ry="60" fill="black" />
+			<text fill="#ffffff" font-size="45" font-family="Tahoma" x="50" y="86">LOGO</text>
+			</svg>
+
+			<h1>Web Storage</h1>
+			<div id="name"></div>
+			<script>
+				// Ensure browser can utilize web storage
+				if(typeof(Storage) !== "undefined"){
+				// Store an item
+				localStorage.setItem('name', 'John Doe');
+
+				// Remove an item
+				//localStorage.removeItem('name');
+				// Get Item
+				console.log(localStorage.name);
+
+				if(localStorage.name){
+					document.getElementById('name').innerHTML=localStorage.getItem('name');
+				}else {
+					document.getElementById('name').innerHTML="No Name Found";
+				}
+			}else {
+				console.log('localStorage Not Available');
+			}
+
+			</script>
+
+			<h1>Drag and Drop</h1>
+			<div id="box" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+			</div>
+
+			<img id="drag1" src="logo.ico" draggable="true" ondragstart="drag(event)" width="200" height="175">
+			<script>
+				function allowDrop(ev){
+					ev.preventDefault();
+				}
+				function drag(ev){
+					ev.dataTransfer.setData("text", ev.target.id);
+				}
+				function drop(ev){
+					ev.preventDefault();
+					var data = ev.dataTransfer.getData("text");
+					ev.target.appendChild(document.getElementById(data));
+				}
+			</script>
+			<h1 contenteditable="true">This text can be edited</h1>
+
+			<h1>Geolocation</h1>
+			<button onclick="getLocation()">Get Coordinates</button>
+			<h1 id="coords"></h1>
+			<script>
+				var x = document.getElementById('coords');
+				function getLocation(){
+					if(navigator.geolocation){
+						navigator.geolocation.getCurrentPosition(showPosition);
+					} else {
+						x.innerHTML = "Geolocation is not supported";
+					}
+
+					function showPosition(position){
+						//console.log(position.coords.latitude);
+						x.innerHTML = "Latitude: "+ position.coords.latitude + "<br>Longitude: "+ position.coords.longitude;
+					}
+				}
+			</script>
+
+			<h1>MyNote</h1>
+			<section id="noteContainer">
+				<div id="note" contenteditable="true" onkeyup='saveNote(this.id)'></div>
+			</section>
+			<div>
+				<a href="" class="clear" onclick="javascript:clearNote();">Clear Note</a>
+			</div>
+			<script>
+				function getNote(){
+					if(localStorage.getItem('note')){
+						var note = localStorage.getItem('note');
+					} else {
+						var note = 'Go ahead and edit this note to save in local storage';
+					}
+					document.getElementById('note').innerHTML= note;
+				}
+				function saveNote(){
+					var note = document.getElementById('note').innerHTML;
+					localStorage.setItem('note', note);
+				}
+				function clearNote(){
+					clear: localStorage.clear();
+					return false;
+				}
+				getNote();
+			</script>
+		</main>
+		<aside>
+			<h3>Sidebar</h3>
+			<p>sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		</aside>
+		<div class="clr"></div>
+		<footer>
+			<p>Copyright &copy 2017</p>
+		</footer>
+	</div>
+</body>
+</html>
